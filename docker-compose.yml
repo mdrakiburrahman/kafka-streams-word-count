@@ -39,3 +39,12 @@ services:
     working_dir: /scripts
     volumes:
     - ./scripts:/scripts
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    ports:
+      - 19000:9000
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
+    depends_on:
+      - kafka
